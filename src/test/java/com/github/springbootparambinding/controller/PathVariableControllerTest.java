@@ -43,11 +43,12 @@ public class PathVariableControllerTest {
 
     @Test
     public void one() throws Exception {
-        mockMvc.perform(get("/path/one/sss"))
+        long id = 123L;
+        mockMvc.perform(get("/path/one/" + id))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value(200))
-                .andExpect(jsonPath("$.data").value("sss"))
+                .andExpect(jsonPath("$.data").value(id))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
