@@ -1,4 +1,4 @@
-# SpringBoot 参数绑定的 7 种姿势
+# SpringBoot 参数绑定的 7 种方式
 
 1. 从 URL 路径中获取单个请求参数
 
