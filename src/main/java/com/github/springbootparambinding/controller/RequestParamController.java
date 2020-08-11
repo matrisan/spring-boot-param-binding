@@ -1,6 +1,6 @@
 package com.github.springbootparambinding.controller;
 
-import com.github.springbootparambinding.pojo.ResultDTO;
+import com.github.springbootparambinding.pojo.ResultVO;
 import com.github.springbootparambinding.pojo.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestParamController {
 
     @GetMapping("param1")
-    public ResultDTO<String> param1(@RequestParam(name = "name") String name) {
-        return ResultDTO.success(name);
+    public ResultVO<String> param1(@RequestParam(name = "name") String name) {
+        return ResultVO.success(name);
     }
 
     @GetMapping("param2")
-    public ResultDTO<UserInfoDTO> param2(UserInfoDTO user) {
-        return ResultDTO.success(user);
+    public ResultVO<UserInfoDTO> param2(UserInfoDTO user) {
+        return ResultVO.success(user);
     }
 }

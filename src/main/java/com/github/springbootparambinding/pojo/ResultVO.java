@@ -24,14 +24,14 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResultDTO<T> {
+public class ResultVO<T> {
 
     private Integer status;
 
     private T data;
 
-    public static <T> ResultDTO<T> success(T t) {
-        return ResultDTO.<T>builder().data(t).status(200).build();
+    public static <T> ResultVO<T> success(T t) {
+        return ResultVO.<T>builder().data(t).status(200).build();
     }
 
 }

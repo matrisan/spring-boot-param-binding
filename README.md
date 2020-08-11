@@ -1,4 +1,4 @@
-# SpringBoot 参数绑定的 7 种方式
+# SpringBoot 参数绑定的 n 种方式
 
 1. 从 URL 路径中获取单个请求参数
 
@@ -16,9 +16,9 @@
 public class PathVariableController {
 
     @GetMapping("path/one/{data}")
-    public ResultDTO<Long> one(@PathVariable("data") Long data) {
+    public ResultVO<Long> one(@PathVariable("data") Long data) {
         log.error("路径获取单个参数:{}", data);
-        return ResultDTO.success(data);
+        return ResultVO.success(data);
     }
 }
 ```
@@ -40,9 +40,9 @@ public class PathVariableController {
     private final ObjectMapper objectMapper;
 
     @GetMapping("path/many/{ids}")
-    public ResultDTO<Set<Long>> many(@PathVariable("ids") Set<Long> ids) throws JsonProcessingException {
+    public ResultVO<Set<Long>> many(@PathVariable("ids") Set<Long> ids) throws JsonProcessingException {
         log.error("路径获取多个参数:{}", objectMapper.writeValueAsString(ids));
-        return ResultDTO.success(ids);
+        return ResultVO.success(ids);
     }
 
 }
@@ -60,8 +60,8 @@ public class PathVariableController {
 public class RequestParamController {
 
     @GetMapping("param1")
-    public ResultDTO<String> param1(@RequestParam(name = "name") String name) {
-        return ResultDTO.success(name);
+    public ResultVO<String> param1(@RequestParam(name = "name") String name) {
+        return ResultVO.success(name);
     }
 
 }
@@ -79,8 +79,8 @@ public class RequestParamController {
 public class RequestParamController {
 
     @GetMapping("param2")
-    public ResultDTO<UserInfoDTO> param2(UserInfoDTO user) {
-        return ResultDTO.success(user);
+    public ResultVO<UserInfoDTO> param2(UserInfoDTO user) {
+        return ResultVO.success(user);
     }
 }
 ```
@@ -98,8 +98,8 @@ public class RequestParamController {
 public class RequestBodyController {
 
     @PostMapping("body")
-    public ResultDTO<UserInfoDTO> body(@RequestBody UserInfoDTO userInfo) {
-        return ResultDTO.success(userInfo);
+    public ResultVO<UserInfoDTO> body(@RequestBody UserInfoDTO userInfo) {
+        return ResultVO.success(userInfo);
     }
 }
 ```
@@ -117,8 +117,8 @@ public class RequestBodyController {
 public class RequestHeaderController {
 
     @GetMapping("header")
-    public ResultDTO<String> header(@RequestHeader(name = "testHeader") String testHeader) {
-        return ResultDTO.success(testHeader);
+    public ResultVO<String> header(@RequestHeader(name = "testHeader") String testHeader) {
+        return ResultVO.success(testHeader);
     }
 
 }
@@ -137,9 +137,9 @@ public class RequestHeaderController {
 public class RequestCookieController {
 
     @GetMapping("cookie")
-    public ResultDTO<String> cookie(@CookieValue(name = "testCookie") String testCookie) {
+    public ResultVO<String> cookie(@CookieValue(name = "testCookie") String testCookie) {
         log.debug("testCookie - {}", testCookie);
-        return ResultDTO.success(testCookie);
+        return ResultVO.success(testCookie);
     }
 
 }

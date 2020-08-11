@@ -1,6 +1,6 @@
 package com.github.springbootparambinding.controller;
 
-import com.github.springbootparambinding.pojo.ResultDTO;
+import com.github.springbootparambinding.pojo.ResultVO;
 import com.github.springbootparambinding.pojo.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestBodyController {
 
     @PostMapping("body")
-    public ResultDTO<UserInfoDTO> body(@RequestBody UserInfoDTO userInfo) {
-        return ResultDTO.success(userInfo);
+    public ResultVO<UserInfoDTO> body(@RequestBody UserInfoDTO userInfo) {
+        return ResultVO.success(userInfo);
     }
 }

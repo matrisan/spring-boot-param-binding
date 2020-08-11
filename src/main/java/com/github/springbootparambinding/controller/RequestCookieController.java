@@ -1,6 +1,6 @@
 package com.github.springbootparambinding.controller;
 
-import com.github.springbootparambinding.pojo.ResultDTO;
+import com.github.springbootparambinding.pojo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestCookieController {
 
     @GetMapping("cookie")
-    public ResultDTO<String> cookie(@CookieValue(name = "testCookie") String testCookie) {
+    public ResultVO<String> cookie(@CookieValue(name = "testCookie") String testCookie) {
         log.debug("testCookie - {}", testCookie);
-        return ResultDTO.success(testCookie);
+        return ResultVO.success(testCookie);
     }
 
 }
