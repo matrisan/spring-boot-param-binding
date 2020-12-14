@@ -1,11 +1,15 @@
 package com.github.springbootparambinding.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -27,5 +31,10 @@ import lombok.ToString;
 public class UserInfoDTO {
 
     private String name;
+
+    @DateTimeFormat(pattern = "yyyyMMddHHmm")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyyMMddHHmm", timezone = "GMT+8")
+    private LocalDateTime date;
 
 }

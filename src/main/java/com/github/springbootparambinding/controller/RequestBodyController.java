@@ -1,5 +1,7 @@
 package com.github.springbootparambinding.controller;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import com.github.springbootparambinding.pojo.ResultVO;
 import com.github.springbootparambinding.pojo.UserInfoDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 0.0.1
  */
 
-@Slf4j
+
 @RestController
 public class RequestBodyController {
+    Log log = LogFactory.get();
 
     @PostMapping("body")
     public ResultVO<UserInfoDTO> body(@RequestBody UserInfoDTO userInfo) {
+        log.debug("This is {} log", string());
         return ResultVO.success(userInfo);
     }
+
+    private String string() {
+        System.out.println("debug");
+
+        return "debug";
+    }
+
 }
